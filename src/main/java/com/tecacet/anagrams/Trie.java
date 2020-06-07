@@ -2,26 +2,26 @@ package com.tecacet.anagrams;
 
 /**
  * Trie structure for storing a dictionary
- * 
- * @author dimitri
  *
+ * @author dimitri
  */
-public class Trie  {
+public class Trie {
     private static final int A_POSITION = 65;
 
-	private static final int R = 26; //ALL CAPS
+    private static final int R = 26; //ALL CAPS
 
     private Node root = new Node();
 
+
     private static class Node {
         private Boolean val;
-        private Node[] next = new Node[R];
+        private final Node[] next = new Node[R];
     }
 
     public boolean containsWord(CharSequence key) {
         return get(key) != null;
     }
-    
+
     public Boolean get(CharSequence key) {
         Node x = get(root, key, 0);
         if (x == null) {
@@ -40,7 +40,7 @@ public class Trie  {
         char c = key.charAt(d);
         return get(x.next[c - A_POSITION], key, d + 1);
     }
-    	
+
     public void add(String key) {
         root = put(root, key, true, 0);
     }
@@ -57,7 +57,7 @@ public class Trie  {
         x.next[c - A_POSITION] = put(x.next[c - A_POSITION], key, val, d + 1);
         return x;
     }
-    
+
     public boolean isValidPrefix(CharSequence prefix) {
         Node x = get(root, prefix, 0);
         return x != null;
