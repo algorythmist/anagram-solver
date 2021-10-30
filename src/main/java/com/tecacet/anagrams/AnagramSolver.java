@@ -47,9 +47,9 @@ public class AnagramSolver {
      *
      * @param text        the work (or random letters) for which to look for
      *                    anagrams
-     * @param uniqueWords in the case of multi-word anagrams, specify wether to
+     * @param uniqueWords in the case of multi-word anagrams, specify whether to
      *                    return unique words or not. For example, "SNOW MAN" and
-     *                    "MAN SNOW" will be consolidate to "MAN SNOW"
+     *                    "MAN SNOW" will be consolidated to "MAN SNOW"
      * @return the collection of valid anagrams
      */
     public Set<String> solve(String text, boolean uniqueWords) {
